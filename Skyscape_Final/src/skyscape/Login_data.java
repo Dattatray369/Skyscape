@@ -60,7 +60,7 @@ public class Login_data extends Base {
 				Thread.sleep(400);
 				w.findElement(By.linkText("Sign Out")).click();
 				w.getPageSource().contains("LOGIN TO SKYSCAPE");
-
+//test
 			} else if (w.getPageSource().contains("LOGIN TO SKYSCAPE")) {
 				System.out.println(id + " Fail");
 				String error1 = w.findElement(
