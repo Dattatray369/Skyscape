@@ -30,7 +30,7 @@ public class Login_data extends Base {
 	public void Login_All_scenarios() throws BiffException, IOException,
 			InterruptedException, RowsExceededException, WriteException {
 		FileInputStream f = new FileInputStream(
-				"E:/Automation/Selenium/Skyscape/login.xls");
+				"D:/git_dir/Skyscape/Skyscape_Final/Excels/login.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 

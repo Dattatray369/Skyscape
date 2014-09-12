@@ -34,7 +34,7 @@ public class Registration_Valid extends Base {
 			RowsExceededException, WriteException {
 
 		FileInputStream f = new FileInputStream(
-				"C:/Users/Dattatray/Desktop/Registration.xls");
+				"D:/git_dir/Skyscape/Skyscape_Final/Excels/Registration_Valid.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 		WritableWorkbook copy = Workbook.createWorkbook(new File(
