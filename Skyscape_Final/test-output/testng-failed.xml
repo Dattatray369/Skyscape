@@ -3,17 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="skyscape.Header_bar">
+      <class name="skyscape.Launch">
         <methods>
           <include name="tearDown"/>
-          <include name="School_page"/>
-          <include name="Support"/>
-          <include name="App_page"/>
+          <include name="Scroll_down"/>
           <include name="setup"/>
-          <include name="Cart"/>
-          <include name="Home_page"/>
         </methods>
-      </class> <!-- skyscape.Header_bar -->
+      </class> <!-- skyscape.Launch -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
