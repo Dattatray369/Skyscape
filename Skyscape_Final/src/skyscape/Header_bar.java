@@ -66,6 +66,15 @@ public class Header_bar extends Base {
 	Assert.assertEquals(SuppTitle, Support_Title);
  } 
   
+  @Test
+  public void Cart() {
+ 	w.findElement(By.linkText("CART")).click();
+ 	w.getCurrentUrl().equals("https://www.skyscape.com/estore/shoppingcart.aspx");	  
+ 	String CartTitle = w.getTitle();
+ 	System.out.println(CartTitle);
+ 	Assert.assertEquals(CartTitle, Cart);
+  }
+  
  @Test
  public void My_Account() {
 	w.findElement(By.cssSelector("#primary > li:nth-child(6) > a")).click();
@@ -74,7 +83,8 @@ public class Header_bar extends Base {
 	System.out.println(AccTitle);
 	Assert.assertEquals(AccTitle, login);
  }
- 
+
+
  @Test
  public void My_Account_after_login() throws InterruptedException {
 	w.findElement(By.cssSelector("#primary > li:nth-child(6) > a")).click();
@@ -90,15 +100,6 @@ public class Header_bar extends Base {
 	  Thread.sleep(500);
 	  w.findElement(By.linkText("Sign Out")).click();	
  }
- 
- @Test
- public void Cart() {
-	w.findElement(By.cssSelector("#primary > li:nth-child(7) > a")).click();
-	w.getCurrentUrl().equals("https://www.skyscape.com/estore/shoppingcart.aspx");	  
-	String CartTitle = w.getTitle();
-	System.out.println(CartTitle);
-	Assert.assertEquals(CartTitle, Cart);
-} 
  
  /* 
  @BeforeClass

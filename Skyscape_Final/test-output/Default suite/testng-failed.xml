@@ -5,13 +5,11 @@
     <classes>
       <class name="skyscape.Header_bar">
         <methods>
-          <include name="tearDown"/>
-          <include name="School_page"/>
-          <include name="Support"/>
           <include name="App_page"/>
-          <include name="setup"/>
+          <include name="tearDown"/>
           <include name="Cart"/>
           <include name="Home_page"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- skyscape.Header_bar -->
     </classes>
