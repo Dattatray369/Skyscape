@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class Launch extends Base{
   
 	 String home_title = "Mobile medical resources for iOS & Android | Skyscape";
-	
+	 //test git
 	
 	@Test(priority=0)
   public void Skyscape_website_launch() {
@@ -27,31 +27,37 @@ public class Launch extends Base{
 
 	@Test(priority=1)
 	  public void Scroll_down() {
+		
+		//Boolean ww = w.findElements(By.id("logo")).size() > 0 ;
+		//System.out.println(ww);
 		List<WebElement> elements = w.findElements(By.id("logo"));
 		
+		
 	    // check visibility
-	    for (WebElement element : elements) {
+	  for (WebElement element : elements) {
 	      Assert.assertTrue(element.isDisplayed());
 	    }
-
-	    // scroll up
+		// scroll up
 	    ((JavascriptExecutor) w).executeScript("scroll(0,250);");
 	    elements = w.findElements(By.id("logo"));
 	    
 	    // check visibility after scroll up
-	    for (WebElement element : elements) {
+	    List<WebElement> elements1 = w.findElements(By.id("logo"));
+	    for (WebElement element : elements1) {
 	      Assert.assertTrue(element.isDisplayed());
 	    }
+//	    Boolean ww1 = w.findElements(By.id("logo")).size() > 0 ;
+//	    Assert.assertFalse(ww1);
 	    
 	    // scroll up
 	    ((JavascriptExecutor) w).executeScript("scroll(250,0);");
 	    elements = w.findElements(By.id("logo"));
 	    
-	    // check visibility after scroll up
-	    for (WebElement element : elements) {
+//	     check visibility after scroll up
+	    List<WebElement> elements2 = w.findElements(By.id("logo"));
+	    for (WebElement element : elements2) {
 	      Assert.assertTrue(element.isDisplayed());
 	    }
-	    
 	}
 
 }

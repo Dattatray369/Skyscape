@@ -17,6 +17,7 @@ public class Base {
 	  w.manage().window().maximize();
   }
 
+  
   @AfterSuite
    public void tearDown() throws IOException{
           try{

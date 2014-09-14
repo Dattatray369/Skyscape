@@ -30,7 +30,7 @@ public class Login_data extends Base {
 	public void Login_All_scenarios() throws BiffException, IOException,
 			InterruptedException, RowsExceededException, WriteException {
 		FileInputStream f = new FileInputStream(
-				"D:/git_dir/Skyscape/Skyscape_Final/Excels/login.xls");
+				"E:/Automation/Selenium/Skyscape/login.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 
@@ -60,7 +60,7 @@ public class Login_data extends Base {
 				Thread.sleep(400);
 				w.findElement(By.linkText("Sign Out")).click();
 				w.getPageSource().contains("LOGIN TO SKYSCAPE");
-//test
+
 			} else if (w.getPageSource().contains("LOGIN TO SKYSCAPE")) {
 				System.out.println(id + " Fail");
 				String error1 = w.findElement(
