@@ -51,10 +51,10 @@ public class Search extends Base {
   
   @Test(priority=0)
   public void Search_no_results() {
-	  //w.findElement(By.name("q")).sendKeys(keyword3);
+	  w.findElement(By.name("q")).sendKeys(keyword1);
 	  w.findElement(By.id("search-button")).click();
 	  w.getTitle().contains(search_title);
-	  w.getPageSource().contains("Your search for [ ] returned no products. Please try a different search term.");
+	  w.getPageSource().contains("Your search for [ fever ] returned no products. Please try a different search term.");
 	  }
   
   @Test(priority=1)

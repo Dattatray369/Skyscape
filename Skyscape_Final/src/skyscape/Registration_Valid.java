@@ -34,7 +34,7 @@ public class Registration_Valid extends Base {
 			RowsExceededException, WriteException {
 
 		FileInputStream f = new FileInputStream(
-				"E:/Automation/Selenium/Skyscape/Registration.xls");
+				"D:/git_dir/Skyscape/Skyscape_Final/Excels/Registration_Valid.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 		WritableWorkbook copy = Workbook.createWorkbook(new File(
@@ -164,7 +164,7 @@ public class Registration_Valid extends Base {
 		}
 	}
 
-	public static String readFromFile() throws IOException {
+	private static String readFromFile() throws IOException {
 
 		FileInputStream fstream = new FileInputStream(
 				"C:/Users/Dattatray/Desktop/Lastcreatedid.txt");

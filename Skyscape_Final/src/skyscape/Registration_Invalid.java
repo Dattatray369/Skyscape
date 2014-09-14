@@ -27,7 +27,7 @@ public class Registration_Invalid extends Base {
 	 @Test
 	 public void Registration_All_scenarios() throws Exception, IOException {
 
-		FileInputStream f = new FileInputStream("E:/Automation/Selenium/Skyscape/Registration.xls");
+		FileInputStream f = new FileInputStream("D:/git_dir/Skyscape/Skyscape_Final/Excels/Registration.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 		WritableWorkbook copy = Workbook.createWorkbook(new File("status.xls"),wb);
