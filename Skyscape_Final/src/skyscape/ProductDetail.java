@@ -17,11 +17,11 @@ public class ProductDetail extends Base{
   String Product1_title = "Medical Eponyms | Skyscape";
   String ExpSelectedoption = "-- Choose a device/smartphone --";
   String selectedOption;
-  
+ 
   
   @Test
   public void Launch_Product_Detail() throws InterruptedException {  
-
+	 
 	  w.findElement(By.linkText(Product1)).click();
 	  w.getTitle().contains(Product1_title);
 	  Thread.sleep(500);
@@ -66,7 +66,7 @@ public class ProductDetail extends Base{
   @BeforeMethod
   public void beforeMethod() throws InterruptedException
   {
-	  
+	  w.manage().deleteAllCookies();  
 	  w.get("https://www.skyscape.com/index/home.aspx");
 	  w.findElement(By.linkText("PRODUCTS")).click();
 	  w.findElement(By.linkText("View All Products")).click();

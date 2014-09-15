@@ -18,21 +18,18 @@ public class Shopping_cart extends Base {
 	//WebDriver w = new FirefoxDriver();
 	String id = "testmobiuso33@gmail.com";
 	String product = "5-Minute Pediatric Consult";
-	float productcost = (float) 99.95;
-	float costafterupdate  = (float) 199.90;
+	//float productcost = (float) 99.95;
+	String productcost = "$99.95";
+	String costafterupdate = "$199.90";
+	//float costafterupdate  = (float) 199.90;
 	String quantity = "2";
 	
 	//WebElement desktop = w.findElement(By.className("icon-rx"));
 		
 	
-@Test(priority=4)
+@Test
   public void Checkout() throws InterruptedException {
-	  //w.findElement(By.linkText("PRODUCTS")).click();
-	  //w.findElement(By.linkText("Physicians")).click();
-//	  w.findElement(By.linkText(product)).click();
-//	  w.findElement(By.id("AddToCart")).click();
-//	  Thread.sleep(2000);
-//	  w.getPageSource().contains(product);
+
 	  Thread.sleep(2000);
 	  w.findElement(By.id("CheckoutLink")).click();
 	  w.getPageSource().contains("BILLING & SHIPPING");
@@ -44,18 +41,9 @@ public class Shopping_cart extends Base {
 	  }
   
  
-  @Test (priority=3)
+  @Test 
   public void Remove_resource_from_cart() throws InterruptedException {
-	  
-	  //w.findElement(By.linkText("PRODUCTS")).click();
-	//  Thread.sleep(500);
-	//  w.findElement(By.linkText("Physicians")).click();
-//	  Thread.sleep(500);
-//	  w.findElement(By.linkText(product)).click();
-//	  Thread.sleep(500);
-//	  w.findElement(By.id("AddToCart")).click();
-	  Thread.sleep(2000);
-	  w.getPageSource().contains(product);
+
 	  Thread.sleep(800);
 	  w.findElement(By.cssSelector("#CartItems__ctl0_RemoveItem")).click();
 	  Thread.sleep(800);
@@ -63,23 +51,15 @@ public class Shopping_cart extends Base {
 	 System.out.println("Remove_resource_from_cart_pass"); 
   }
   
- @Test(priority=0)
+ @Test
   public void Change_Platform() throws InterruptedException {
 	  
 	 String ExpSelectedoption3 = "Windows desktop PC";
-	 
-	//  w.findElement(By.linkText("PRODUCTS")).click();
-	//  Thread.sleep(500);
-	 // w.findElement(By.linkText("Physicians")).click();
-//	  Thread.sleep(2000);
-//	  w.findElement(By.linkText(product)).click();
-//	  Thread.sleep(200);
-//	  w.findElement(By.id("AddToCart")).click();
-	  Thread.sleep(2000);
-	  w.getPageSource().contains(product);
-	  Thread.sleep(2000);
-	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(2) > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
+	 System.out.println("Test1");
+	  Thread.sleep(500);
+	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr.mycartitem > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
 	  Thread.sleep(800);
+	  System.out.println("Test2");
 	  WebElement frameID = w.findElement(By.cssSelector("#cboxLoadedContent > iframe"));
 	  Thread.sleep(800);
 	  w.switchTo().frame(frameID);
@@ -87,39 +67,38 @@ public class Shopping_cart extends Base {
 	  Select d1 = new Select(w.findElement(By.name("AvailablePlatforms")));
 	  d1.selectByVisibleText(ExpSelectedoption3);
 	  Thread.sleep(800);
-	  w.findElement(By.cssSelector("#Change")).click();
+	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr.mycartitem > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
 	  Thread.sleep(800);
+	  System.out.println("Test3");
 	  w.switchTo().defaultContent();
 	  Thread.sleep(800);
 	  w.getPageSource().contains(product);
+	  Thread.sleep(500);
 	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(2) > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
 	  Thread.sleep(800);
 	  w.switchTo().frame(frameID);
 	  Thread.sleep(800);
+	  System.out.println("Test4");
 	  String SelectedOption3 = new Select(w.findElement(By.name("AvailablePlatforms"))).getFirstSelectedOption().getText();
-	  Assert.assertEquals(ExpSelectedoption3, SelectedOption3);
+	  Assert.assertEquals(SelectedOption3, ExpSelectedoption3);
 	  System.out.println("Change_Platform_Testcase Passed");
 	  }
    
- @Test(priority=1)
+ @Test
  public void Update_Cart () throws InterruptedException {
 	
 	  
-//	  w.findElement(By.linkText("PRODUCTS")).click();
-//	  Thread.sleep(500);
-//	  w.findElement(By.linkText("Physicians")).click();
-	  Thread.sleep(500);
-//	  w.findElement(By.linkText(product)).click();
-//	  Thread.sleep(500);
-//	  w.findElement(By.id("AddToCart")).click();
-	  Thread.sleep(2000);
-	  w.getPageSource().contains(product);
+
 	  Thread.sleep(800);
-	  float beforeupdatecost = Float.parseFloat(w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(4) > td:nth-child(3)")).getText());
+	 // float beforeupdatecost = Float.parseFloat(w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(4) > td:nth-child(3)")).getText());
+	  
+	  String beforeupdatecost = w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(4) > td:nth-child(3)")).getText();
 	  Assert.assertEquals(beforeupdatecost, productcost);
+	  w.findElement(By.name("CartItems:_ctl0:Quantity")).clear();
 	  w.findElement(By.name("CartItems:_ctl0:Quantity")).sendKeys(quantity);
 	  w.findElement(By.id("UpdateCart")).click();
-	  float afterupdatecost = Float.parseFloat(w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(4) > td:nth-child(3)")).getText());
+	 // float afterupdatecost = Float.parseFloat(w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(4) > td:nth-child(3)")).getText());
+	  String afterupdatecost = w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(4) > td:nth-child(3)")).getText();
 	  Assert.assertEquals(afterupdatecost, costafterupdate);
 	 System.out.println("Update_Cart_pass"); 
  }
@@ -127,18 +106,24 @@ public class Shopping_cart extends Base {
   
   @BeforeMethod
   public void beforeMethod() throws InterruptedException {
+     w.manage().deleteAllCookies();
+	  Thread.sleep(200);
 	  w.get("https://www.skyscape.com");
 	  Thread.sleep(500);
 	  w.findElement(By.linkText("MY ACCOUNT")).click();
 	  w.findElement(By.name("EmailAddress")).clear();
-		w.findElement(By.name("EmailAddress")).sendKeys();
+		w.findElement(By.name("EmailAddress")).sendKeys(id);
 		w.findElement(By.name("Password")).clear();
 		w.findElement(By.name("Password")).sendKeys("tester123");
 		w.findElement(By.id("LoginButton")).click();
 	  	w.getPageSource().contains(id);
+	  	Thread.sleep(500);
 	  	w.findElement(By.linkText("PRODUCTS")).click();
+	  	Thread.sleep(500);
 		w.findElement(By.linkText("Physicians")).click();
-		w.findElement(By.linkText(product)).click();  
+		Thread.sleep(500);
+		w.findElement(By.linkText(product)).click(); 
+		Thread.sleep(500);
 		 w.findElement(By.id("AddToCart")).click();
 		  Thread.sleep(2000);
 		  w.getPageSource().contains(product);
@@ -147,8 +132,9 @@ public class Shopping_cart extends Base {
   @AfterMethod
   public void afterMethod() throws InterruptedException {
 	  w.findElement(By.linkText("MY ACCOUNT")).click();
-	  Thread.sleep(500);
-	  w.findElement(By.linkText("Sign Out")).click();	
+	  Thread.sleep(800);
+	  w.findElement(By.linkText("Sign Out")).click();
+	 
   }
   
 }

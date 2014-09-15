@@ -32,7 +32,7 @@ public class Search extends Base {
 	  List<WebElement> w1 = w.findElements(By.cssSelector("#ProductArea > table > tbody > tr"));
 	  int search1_count = w1.size();
 	  w.getPageSource().contains("keyword1");
-	  Assert.assertEquals(search1_count, 47);
+	  Assert.assertEquals(search1_count, 50);
   }
   
   @Test(priority=0)
@@ -71,7 +71,7 @@ public class Search extends Base {
 	  List<WebElement> w3 = w.findElements(By.cssSelector("#ProductArea > table > tbody > tr"));
 	  int search3_count = w3.size();
 	  w.getPageSource().contains("keyword1");
-	  Assert.assertEquals(search3_count, 47);
+	  Assert.assertEquals(search3_count, 50);
   }
   
   

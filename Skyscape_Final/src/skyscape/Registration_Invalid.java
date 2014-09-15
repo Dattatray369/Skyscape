@@ -27,7 +27,7 @@ public class Registration_Invalid extends Base {
 	 @Test
 	 public void Registration_All_scenarios() throws Exception, IOException {
 
-		FileInputStream f = new FileInputStream("E:/Automation/Selenium/Skyscape/Registration.xls");
+		FileInputStream f = new FileInputStream("D:/git_dir/Skyscape/Skyscape_Final/Excels/Registration.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 		WritableWorkbook copy = Workbook.createWorkbook(new File("status.xls"),wb);
@@ -36,7 +36,8 @@ public class Registration_Invalid extends Base {
 		//w.manage().window().maximize();
 		w.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		String account = "My Account | Skyscape";
-		for (int i = 1; i < s.getRows(); i++) {
+		int row1 = 17;
+		for (int i = 1; i < row1; i++) {
 			int j = 1;
 			String firstname = s.getCell(j, i).getContents();//1
 			String lastname = s.getCell(j + 1, i).getContents();//2

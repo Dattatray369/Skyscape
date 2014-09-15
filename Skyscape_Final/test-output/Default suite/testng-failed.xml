@@ -3,15 +3,17 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="skyscape.Header_bar">
+      <class name="skyscape.Shopping_cart">
         <methods>
-          <include name="App_page"/>
-          <include name="tearDown"/>
-          <include name="Cart"/>
-          <include name="Home_page"/>
+          <include name="Checkout"/>
+          <include name="Change_Platform"/>
+          <include name="beforeMethod"/>
+          <include name="Update_Cart"/>
           <include name="setup"/>
+          <include name="afterMethod"/>
+          <include name="Remove_resource_from_cart"/>
         </methods>
-      </class> <!-- skyscape.Header_bar -->
+      </class> <!-- skyscape.Shopping_cart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

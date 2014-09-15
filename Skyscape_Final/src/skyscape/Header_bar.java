@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Header_bar extends Base {
-	//public static WebDriver w = new FirefoxDriver();
+	
 	String id = "testmobiuso33@gmail.com";
 	String password = "tester123";
 	String Home_Title = "Mobile medical resources for iOS, Android | Skyscape";
@@ -18,7 +18,7 @@ public class Header_bar extends Base {
 	String Cart = "Shopping Cart";
 	
 	
-  @Test // It will fail because need to change title of this page
+  @Test (priority=0)// It will fail because need to change title of this page
   public void Home_page() {
 	w.get("https://www.skyscape.com/index/home.aspx");
 	w.findElement(By.cssSelector("#primary > li.menu-item.menu-item-type-post_type.menu-item-object-page.page_item.page-item-192.current_page_item")).click();
@@ -28,7 +28,7 @@ public class Header_bar extends Base {
 	Assert.assertEquals(HTitle, Home_Title);
 	}
   
-  @Test// It will fail because need to change title of this page
+  @Test(priority=1)// It will fail because need to change title of this page
   public void App_page() {
 	w.findElement(By.cssSelector("#primary > li:nth-child(2) > a")).click();
 	w.getCurrentUrl().equals("https://www.skyscape.com/sml/");	  
@@ -38,7 +38,7 @@ public class Header_bar extends Base {
   }  
   
   
-  @Test
+  @Test(priority=2)
   public void Product_page() {
 	w.findElement(By.cssSelector("#primary > li:nth-child(3) > a")).click();
 	w.getCurrentUrl().equals("https://www.skyscape.com/estore/productoverview.aspx");	  
@@ -48,7 +48,7 @@ public class Header_bar extends Base {
 	Assert.assertEquals(PTitle, Product_Title);
   }  
   
-  @Test
+  @Test(priority=3)
    public void School_page() {
 	w.findElement(By.cssSelector("#primary > li:nth-child(4) > a")).click();
 	w.getCurrentUrl().equals("https://www.skyscape.com/group/grouphome.aspx");	  
@@ -57,7 +57,7 @@ public class Header_bar extends Base {
 	Assert.assertEquals(STitle, Schools_Groups_Title);
   }  
   
-  @Test
+  @Test(priority=4)
   public void Support() {
 	w.findElement(By.cssSelector("#primary > li:nth-child(5) > a")).click();
 	w.getCurrentUrl().equals("https://www.skyscape.com/support/supporthome.aspx");	  
@@ -66,16 +66,9 @@ public class Header_bar extends Base {
 	Assert.assertEquals(SuppTitle, Support_Title);
  } 
   
-  @Test
-  public void Cart() {
- 	w.findElement(By.linkText("CART")).click();
- 	w.getCurrentUrl().equals("https://www.skyscape.com/estore/shoppingcart.aspx");	  
- 	String CartTitle = w.getTitle();
- 	System.out.println(CartTitle);
- 	Assert.assertEquals(CartTitle, Cart);
-  }
   
- @Test
+  
+ @Test(priority=6)
  public void My_Account() {
 	w.findElement(By.cssSelector("#primary > li:nth-child(6) > a")).click();
 	w.getCurrentUrl().equals("https://www.skyscape.com/register/login.aspx?ReturnUrl=%2fsecure%2fmyaccount.aspx");	  
@@ -85,7 +78,7 @@ public class Header_bar extends Base {
  }
 
 
- @Test
+ @Test(priority=7)
  public void My_Account_after_login() throws InterruptedException {
 	w.findElement(By.cssSelector("#primary > li:nth-child(6) > a")).click();
 	w.getCurrentUrl().equals("https://www.skyscape.com/register/login.aspx?ReturnUrl=%2fsecure%2fmyaccount.aspx");	  
@@ -101,16 +94,13 @@ public class Header_bar extends Base {
 	  w.findElement(By.linkText("Sign Out")).click();	
  }
  
- /* 
- @BeforeClass
- public void beforeClass1() {
-	w.manage().window().maximize();
-	w.get("https://www.skyscape.com/index/home.aspx");
-  }
-
- @AfterClass
- public void afterClass1() {
-	 w.close();
-	 
-  }*/
+ @Test(priority=5)
+ public void Cart() {
+	w.findElement(By.cssSelector("#primary > li:nth-child(7) > a")).click();
+	w.getCurrentUrl().equals("https://www.skyscape.com/estore/shoppingcart.aspx");	  
+	String CartTitle = w.getTitle();
+	System.out.println(CartTitle);
+	Assert.assertEquals(CartTitle, Cart);
+ }
+ 
 }

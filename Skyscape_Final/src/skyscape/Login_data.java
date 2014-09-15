@@ -29,8 +29,7 @@ public class Login_data extends Base {
 	@Test
 	public void Login_All_scenarios() throws BiffException, IOException,
 			InterruptedException, RowsExceededException, WriteException {
-		FileInputStream f = new FileInputStream(
-				"E:/Automation/Selenium/Skyscape/login.xls");
+		FileInputStream f = new FileInputStream("D:/git_dir/Skyscape/Skyscape_Final/Excels/login.xls");
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet s = wb.getSheet("Sheet1");
 
@@ -61,8 +60,8 @@ public class Login_data extends Base {
 				w.findElement(By.linkText("Sign Out")).click();
 				w.getPageSource().contains("LOGIN TO SKYSCAPE");
 
-			} else if (w.getPageSource().contains("LOGIN TO SKYSCAPE")) {
-				System.out.println(id + " Fail");
+			} else if (w.getPageSource().contains("Form Entries Incomplete or Invalid")) {
+				System.out.println(id + "Pass");
 				String error1 = w.findElement(
 						By.cssSelector("#Validationsummary1 > ul >li"))
 						.getText();
