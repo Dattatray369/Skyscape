@@ -61,26 +61,27 @@ public class Shopping_cart extends Base {
 	  Thread.sleep(800);
 	  System.out.println("Test2");
 	  WebElement frameID = w.findElement(By.cssSelector("#cboxLoadedContent > iframe"));
-	  Thread.sleep(800);
 	  w.switchTo().frame(frameID);
-	  Thread.sleep(800);
+	  Thread.sleep(300);
 	  Select d1 = new Select(w.findElement(By.name("AvailablePlatforms")));
 	  d1.selectByVisibleText(ExpSelectedoption3);
 	  Thread.sleep(800);
-	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr.mycartitem > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
-	  Thread.sleep(800);
+	  w.findElement(By.id("Change")).click();
 	  System.out.println("Test3");
 	  w.switchTo().defaultContent();
 	  Thread.sleep(800);
 	  w.getPageSource().contains(product);
 	  Thread.sleep(500);
-	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr:nth-child(2) > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
-	  Thread.sleep(800);
-	  w.switchTo().frame(frameID);
-	  Thread.sleep(800);
+	  w.findElement(By.cssSelector("#CartSection > table.mycart.pad_left > tbody > tr.mycartitem > td.item-info > span.removebutton > a.APEdocument.APEinternal.box_link")).click();
+	  WebElement frameID1 = w.findElement(By.cssSelector("#cboxLoadedContent > iframe"));
+	  w.switchTo().frame(frameID1);
+	  Thread.sleep(300);
 	  System.out.println("Test4");
 	  String SelectedOption3 = new Select(w.findElement(By.name("AvailablePlatforms"))).getFirstSelectedOption().getText();
 	  Assert.assertEquals(SelectedOption3, ExpSelectedoption3);
+	  w.findElement(By.id("Change")).click();
+	  w.switchTo().defaultContent();
+	  Thread.sleep(300);
 	  System.out.println("Change_Platform_Testcase Passed");
 	  }
    
@@ -106,10 +107,10 @@ public class Shopping_cart extends Base {
   
   @BeforeMethod
   public void beforeMethod() throws InterruptedException {
-     w.manage().deleteAllCookies();
-	  Thread.sleep(200);
+    
 	  w.get("https://www.skyscape.com");
-	  Thread.sleep(500);
+	  w.manage().deleteAllCookies();
+	  Thread.sleep(5000);
 	  w.findElement(By.linkText("MY ACCOUNT")).click();
 	  w.findElement(By.name("EmailAddress")).clear();
 		w.findElement(By.name("EmailAddress")).sendKeys(id);
@@ -117,6 +118,12 @@ public class Shopping_cart extends Base {
 		w.findElement(By.name("Password")).sendKeys("tester123");
 		w.findElement(By.id("LoginButton")).click();
 	  	w.getPageSource().contains(id);
+	  	w.manage().deleteAllCookies();
+	  	 w.findElement(By.linkText("MY ACCOUNT")).click();
+		 w.findElement(By.name("EmailAddress")).sendKeys(id);
+			w.findElement(By.name("Password")).sendKeys("tester123");
+			w.findElement(By.id("LoginButton")).click();
+		  	w.getPageSource().contains(id);
 	  	Thread.sleep(500);
 	  	w.findElement(By.linkText("PRODUCTS")).click();
 	  	Thread.sleep(500);

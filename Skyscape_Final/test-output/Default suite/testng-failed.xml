@@ -5,13 +5,10 @@
     <classes>
       <class name="skyscape.Shopping_cart">
         <methods>
-          <include name="Checkout"/>
           <include name="Change_Platform"/>
-          <include name="beforeMethod"/>
-          <include name="Update_Cart"/>
-          <include name="setup"/>
           <include name="afterMethod"/>
-          <include name="Remove_resource_from_cart"/>
+          <include name="setup"/>
+          <include name="beforeMethod"/>
         </methods>
       </class> <!-- skyscape.Shopping_cart -->
     </classes>
